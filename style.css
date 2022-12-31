@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@300&family=Martian+Mono:wght@600&display=swap');
+
+.serif {
+    font-family: 'Anek Gurmukhi', sans-serif;
+    transform: translateY(10%);
+}
+
+.mono {
+    font-family: 'Martian Mono', monospace;
+    transform: translateY(-10%);
+}
+
+.center {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.square {
+    width: 1.2vw;
+    height: 20vw;
+    margin-right: 2vw;
+    background-color: #5EEFFF;
+}
+
+table {
+    background-color: #5eefff10;
+    margin: 0;
+    padding-right: 2.5vw;
+}
+
+table:hover {
+    background-color: #5eefff20;
+    transition-duration: 100ms;
+}
+
+body {
+    background-color: #071214;
+}
+
+p {
+    font-size: 6vw;
+    margin: 0;
+    text-align: left;
+    color: #5EEFFF;
+    /* bring your own prefixes */
+}
