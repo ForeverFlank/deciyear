@@ -59,15 +59,20 @@ p {
 }
 
 .ff {
+    display: flex;
     position: absolute;
-    bottom: 3%;
+    bottom: 2%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.ff p {
     font-size: 16px;
     word-spacing: 1px;
 }
 
 .heart {
-    margin-right: 1px;
-    font-size: 14px;
+    position: relative;
+    margin: 3.2px 4px 0px 4px;
+    filter: brightness(0) invert(1);
 }
