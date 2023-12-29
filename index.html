@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="style.css">
-    <title>Decimal Year</title>
-    
-  </head>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css">
   
-  <body class="center" style="padding: 8vw;">
-    <article>
-      <section>
-        <table>
-          <tr>
-            <td rowspan="2">
-              <div class="square"></div>
-            </td>
-            <td>
-              <p class="serif">Current Decimal Time:</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="mono" id="decimal_year"></p>
-            </td>
-          </tr>
-        </table>
-      </section>
-    </article>
-    <script src="script.js"></script>
-  </body>
+  <title>Decimal Year</title>
+
+</head>
+
+<body>
+  <canvas id="background"></canvas>
+  <div class="container-1">
+    <div class="border">
+      <p>Current Decimal Time</p>
+      <p id="decimal-year"></p>
+    </div>
+    <div class="bar-container">
+      <div class="bar" id="bar-year"></div>
+    </div>
+  </div>
+  <p class="ff">Made with <span class="heart">❤</span> by ForeverFlank</p>
+  <script src="script.js"></script>
+</body>
+
 </html>

@@ -1,49 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi:wght@300&family=Martian+Mono:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&display=swap');
 
-.serif {
-    font-family: 'Anek Gurmukhi', sans-serif;
-    transform: translateY(10%);
+* {
+    font-family: 'Barlow', sans-serif;
 }
 
-.mono {
-    font-family: 'Martian Mono', monospace;
-    transform: translateY(-10%);
-}
-
-.center {
-    position: absolute;
+html {
     margin: 0;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.square {
-    width: 1.2vw;
-    height: 20vw;
-    margin-right: 2vw;
-    background-color: #5EEFFF;
-}
-
-table {
-    background-color: #5eefff10;
-    margin: 0;
-    padding-right: 2.5vw;
-}
-
-table:hover {
-    background-color: #5eefff20;
-    transition-duration: 100ms;
 }
 
 body {
-    background-color: #071214;
+    margin: 0;
+    background-color: #111;
+    height: 100vh;
+    overflow: hidden;
 }
 
 p {
-    font-size: 6vw;
+    font-size: 5vw;
+    font-weight: 300;
     margin: 0;
-    text-align: left;
-    color: #5EEFFF;
-    /* bring your own prefixes */
+    color: white;
+    text-align: center;
+}
+
+#decimal-year {
+    font-variant-numeric: tabular-nums;
+    font-size: 7vw;
+    font-weight: 400;
+}
+
+.border {
+    border: 1px solid white;
+    padding: 2vw 3.5vw;
+    width: 65vw;
+}
+
+.container-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    background-color: #111;
+}
+
+.bar-container {
+    margin-top: -1px;
+    width: 72vw;
+    height: 1.5vw;
+    border: 1px solid white;
+}
+
+.bar {
+    display: block;
+    margin: 0;
+    background-color: white;
+    height: 1.5vw;
+}
+
+.ff {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    word-spacing: 1px;
+}
+
+.heart {
+    margin-right: 1px;
+    font-size: 14px;
 }
