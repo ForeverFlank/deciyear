@@ -12,17 +12,49 @@ function distance(u, v) {
 }
 
 function decimalYear() {
-    var year = new Date().getFullYear();
-    var yearSec = new Date(year, 0, 1).valueOf();
-    var dateSec = Date.now();
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth();
+    let yearSec = new Date(year, 0, 1).valueOf();
+    let dateSec = Date.now();
 
-    var isLeap = new Date(year, 1, 29).getDate() == 29;
-    var sec = isLeap ? 31622400000 : 31536000000;
+    let isLeap = new Date(year, 1, 29).getDate() == 29;
+    let sec = isLeap ? 31622400000 : 31536000000;
 
-    var decimalYear = year + (dateSec - yearSec) / sec;
-    var fraction = decimalYear % 1;
+    let decimalYear = year + (dateSec - yearSec) / sec;
+    let fraction = decimalYear % 1;
     document.getElementById('decimal-year').innerHTML = decimalYear.toFixed(12);
     document.getElementById('bar-year').style.width = `${fraction * 100}%`;
+
+    document.getElementById('bar-bottom-year').style.width = `${fraction * 100}%`;
+    
+    let thisMonth = new Date(year, month, 1);
+    let nextMonth = new Date(year, month + 1, 1);
+    let monthFraction = (dateSec - thisMonth) / (nextMonth - thisMonth);
+    document.getElementById('bar-bottom-month').style.width = `${monthFraction * 100}%`;
+    
+    let dayOfWeek = now.getDay();
+    let thisWeek = new Date(year, month, now.getDate() - dayOfWeek);
+    let nextWeek = new Date(year, month, now.getDate() + 7 - dayOfWeek);
+    let weekFraction = (dateSec - thisWeek) / (nextWeek - thisWeek);
+    document.getElementById('bar-bottom-week').style.width = `${weekFraction * 100}%`;
+    
+    let thisDay = new Date(year, month, now.getDate());
+    let nextDay = new Date(year, month, now.getDate() + 1);
+    let dayFraction = (dateSec - thisDay) / (nextDay - thisDay);
+    document.getElementById('bar-bottom-day').style.width = `${dayFraction * 100}%`;
+    
+    let thisHour = new Date(year, month, now.getDate(), now.getHours());
+    let hourFraction = (dateSec - thisHour) / (60 * 60 * 1000);
+    document.getElementById('bar-bottom-hour').style.width = `${hourFraction * 100}%`;
+
+    let thisMinute = new Date(year, month, now.getDate(), now.getHours(), now.getMinutes());
+    let minuteFraction = (dateSec - thisMinute) / (60 * 1000);
+    document.getElementById('bar-bottom-minute').style.width = `${minuteFraction * 100}%`;
+
+    let thisSecond = new Date(year, month, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+    let secondFraction = (dateSec - thisSecond) / (1000);
+    document.getElementById('bar-bottom-second').style.width = `${secondFraction * 100}%`;
 }
 
 const canvas = document.getElementById('background');
@@ -72,14 +104,14 @@ function generateNodes() {
 
 function resize() {
     ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
+    ctx.canvas.height = window.innerHeight * 0.95;
     generateNodes();
 }
 resize();
 
 function background() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = ctx.fillStyle = '#1c1c1c';
+    ctx.strokeStyle = ctx.fillStyle = '#242424';
     nodes.forEach(n => {
         n.update();
         n.adj.forEach(m => {
