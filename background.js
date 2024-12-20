@@ -14,7 +14,7 @@ function distance(u, v) {
 const canvas = document.getElementById('background');
 const ctx = canvas.getContext('2d');
 
-let MAX_DISTANCE = 100;
+let MAX_DISTANCE = 150;
 let nodes = [];
 
 class BgNode {
@@ -51,7 +51,7 @@ class BgNode {
 
 function generateNodes() {
     nodes = [];
-    for (let i = 0; i < 200 * canvas.width / 400; i++) {
+    for (let i = 0; i < canvas.width / 3; i++) {
         nodes.push(new BgNode(i));
     }
 }
@@ -65,7 +65,7 @@ resize();
 
 function background() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = ctx.fillStyle = '#242424';
+    ctx.strokeStyle = ctx.fillStyle = '#303030';
     nodes.forEach(n => {
         n.update();
         n.adj.forEach(m => {
