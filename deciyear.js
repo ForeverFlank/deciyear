@@ -3,7 +3,6 @@
 function decimalYear() {
     let now = new Date();
     let year = now.getFullYear();
-    let month = now.getMonth();
     let yearSec = new Date(year, 0, 1).valueOf();
     let dateSec = Date.now();
 
