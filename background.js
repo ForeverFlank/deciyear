@@ -11,52 +11,6 @@ function distance(u, v) {
     return Math.sqrt((u.x - v.x) ** 2 +(u.y - v.y) ** 2);
 }
 
-function decimalYear() {
-    let now = new Date();
-    let year = now.getFullYear();
-    let month = now.getMonth();
-    let yearSec = new Date(year, 0, 1).valueOf();
-    let dateSec = Date.now();
-
-    let isLeap = new Date(year, 1, 29).getDate() == 29;
-    let sec = isLeap ? 31622400000 : 31536000000;
-
-    let decimalYear = year + (dateSec - yearSec) / sec;
-    let fraction = decimalYear % 1;
-    document.getElementById('decimal-year').innerHTML = decimalYear.toFixed(12);
-    document.getElementById('bar-year').style.width = `${fraction * 100}%`;
-
-    document.getElementById('bar-bottom-year').style.width = `${fraction * 100}%`;
-    
-    let thisMonth = new Date(year, month, 1);
-    let nextMonth = new Date(year, month + 1, 1);
-    let monthFraction = (dateSec - thisMonth) / (nextMonth - thisMonth);
-    document.getElementById('bar-bottom-month').style.width = `${monthFraction * 100}%`;
-    
-    let dayOfWeek = now.getDay();
-    let thisWeek = new Date(year, month, now.getDate() - dayOfWeek);
-    let nextWeek = new Date(year, month, now.getDate() + 7 - dayOfWeek);
-    let weekFraction = (dateSec - thisWeek) / (nextWeek - thisWeek);
-    document.getElementById('bar-bottom-week').style.width = `${weekFraction * 100}%`;
-    
-    let thisDay = new Date(year, month, now.getDate());
-    let nextDay = new Date(year, month, now.getDate() + 1);
-    let dayFraction = (dateSec - thisDay) / (nextDay - thisDay);
-    document.getElementById('bar-bottom-day').style.width = `${dayFraction * 100}%`;
-    
-    let thisHour = new Date(year, month, now.getDate(), now.getHours());
-    let hourFraction = (dateSec - thisHour) / (60 * 60 * 1000);
-    document.getElementById('bar-bottom-hour').style.width = `${hourFraction * 100}%`;
-
-    let thisMinute = new Date(year, month, now.getDate(), now.getHours(), now.getMinutes());
-    let minuteFraction = (dateSec - thisMinute) / (60 * 1000);
-    document.getElementById('bar-bottom-minute').style.width = `${minuteFraction * 100}%`;
-
-    let thisSecond = new Date(year, month, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
-    let secondFraction = (dateSec - thisSecond) / (1000);
-    document.getElementById('bar-bottom-second').style.width = `${secondFraction * 100}%`;
-}
-
 const canvas = document.getElementById('background');
 const ctx = canvas.getContext('2d');
 
@@ -104,7 +58,7 @@ function generateNodes() {
 
 function resize() {
     ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight * 0.95;
+    ctx.canvas.height = window.innerHeight;
     generateNodes();
 }
 resize();
@@ -138,6 +92,23 @@ backgroundConnect();
 
 window.addEventListener('resize', resize);
 
-setInterval(decimalYear, 1000 / 60);
 setInterval(backgroundConnect, 300);
 setInterval(background, 1000 / 30);
+
+let idleTime = 0;
+let idleThresold = 4000;
+window.addEventListener("mousemove", () => {
+    idleTime = Date.now()
+});
+function idleHide() {
+    let elements = document.getElementsByClassName("idle-hide");
+    for (let item of elements) {
+        if (Date.now() - idleTime > idleThresold) {
+            item.style.opacity = 0;
+        } else {
+            item.style.opacity = 1;
+        }
+    }
+    requestAnimationFrame(idleHide);
+}
+requestAnimationFrame(idleHide);

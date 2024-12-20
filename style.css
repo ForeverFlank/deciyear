@@ -16,11 +16,11 @@ body {
 }
 
 p {
-    font-size: 5vw;
     font-weight: 300;
     margin: 0;
     color: white;
     text-align: center;
+    font-variant-numeric: tabular-nums;
 }
 
 #background {
@@ -28,7 +28,6 @@ p {
 }
 
 #decimal-year {
-    font-variant-numeric: tabular-nums;
     font-size: 7vw;
     font-weight: 400;
 }
@@ -48,26 +47,42 @@ p {
     backdrop-filter: blur(5px);
 }
 
+.large-bar-container {
+    margin-top: -1px;
+    border: 1px solid white;
+    height: 2vw;
+}
+
 .bar-container {
     margin-top: -1px;
-    width: 72vw;
-    height: 1.5vw;
     border: 1px solid white;
+    height: 1.5vw;
+}
+
+.large-bar {
+    display: block;
+    margin: 0;
+    background-color: white;
+    height: 2vw;
 }
 
 .bar {
     display: block;
     margin: 0;
     background-color: white;
-    height: 1.5vw;
+    height: 1.5vw
 }
 
 .ff {
-    padding: 2em;
-    display: flex;
     position: absolute;
-    transform: translate(calc(-50% + 50vw));
+    bottom: 0;
+    width: 100vw;
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
     overflow: visible;
+    text-align: center;
+    transition: 200ms;
 }
 
 .ff p {
@@ -81,14 +96,40 @@ p {
     filter: brightness(0) invert(1);
 }
 
+.extras-button {
+    background-color: transparent;
+    font-size: 16px;
+    border: 1px solid white;
+    position: absolute;
+    padding: 0.5em 1em;
+    top: 1em;
+    right: 1em;
+    color: white;
+    backdrop-filter: blur(5px);
+    transition: 200ms;
+}
+
+.extras-button:hover {
+    background-color: white;
+    color: black;
+    transition: 200ms;
+}
+
 .progress-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     row-gap: 0.5em;
+    column-gap: 4vw;
+    padding-bottom: 0.75em;
     justify-content: center;
 }
 
-.progress-container p {
-    font-size: 1.25em;
-    text-align: left;
+.progress-container-block {
+    flex-grow: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+    font-size: 3vw;
 }

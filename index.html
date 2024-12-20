@@ -6,74 +6,33 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
-  
+
   <title>Decimal Year</title>
 
 </head>
 
-<body>
+<body style="overflow: hidden;">
   <canvas id="background"></canvas>
   <div class="container-1">
     <div class="border">
-      <p>Current Decimal Year</p>
+      <p style="font-size: 5vw;">Current Decimal Year</p>
       <p id="decimal-year"></p>
     </div>
-    <div class="bar-container">
-      <div class="bar" id="bar-year"></div>
+    <div class="large-bar-container">
+      <div class="large-bar" id="bar-year"></div>
     </div>
   </div>
   
-  <div style="margin: 6vh 14vw">
-    <p style="text-align: left; font-size: 5vw; font-weight: 400; margin: 0.5em 0;">Progress</p>
-    <div class="progress-container">
-      <!--div style="display: flex; justify-content: space-between;">
-        <p>Year</p>
-        </div-->
-      <p>Year</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-year"></div>
-      </div>
-
-      <p>Month</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-month"></div>
-      </div>
-
-      <p>Week</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-week"></div>
-      </div>
-
-      <p>Days</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-day"></div>
-      </div>
-
-      <p>Hours</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-hour"></div>
-      </div>
-
-      <p>Minutes</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-minute"></div>
-      </div>
-
-      <p>Seconds</p>
-      <div class="bar-container">
-        <div class="bar" id="bar-bottom-second"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ff">
+  <button class="extras-button idle-hide" onclick="location.href='./extras'">Extras!</button>
+  <div class="ff idle-hide">
     <p>Made with</p>
     <img class="heart" src="./heart.png" width="14" height="15">
     <p>by ForeverFlank
     </p>
   </div>
-  
+
 </body>
-<script src="script.js"></script>
+<script src="background.js"></script>
+<script src="deciyear.js"></script>
 
 </html>

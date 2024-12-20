@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="../style.css">
+
+  <title>Decimal Year</title>
+
+</head>
+
+<body style="overflow: hidden;">
+  <canvas id="background"></canvas>
+  <div class="container-1">
+    <div class="border">
+      <div class="progress-container">
+        <div class="progress-container-block">
+          <div style="display: flex; justify-content: space-between;">
+            <p>Year</p>
+            <p id="p-year"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-year"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <p>Month</p>
+            <p id="p-month"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-month"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <p>Day</p>
+            <p id="p-day"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-day"></div>
+          </div>
+        </div>
+
+        <div class="progress-container-block">
+          <div style="display: flex; justify-content: space-between;">
+            <p>Hours</p>
+            <p id="p-hours"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-hours"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <p>Minutes</p>
+            <p id="p-minutes"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-minutes"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between;">
+            <p>Seconds</p>
+            <p id="p-seconds"></p>
+          </div>
+          <div class="bar-container">
+            <div class="bar" id="bar-bottom-seconds"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button class="extras-button idle-hide" onclick="location.href='../'">Back</button>
+  <div class="ff idle-hide">
+    <p>Made with</p>
+    <img class="heart" src="../heart.png" width="14" height="15">
+    <p>by ForeverFlank
+    </p>
+  </div>
+
+</body>
+<script src="../background.js"></script>
+<script src="../decitime.js"></script>
+
+</html>
